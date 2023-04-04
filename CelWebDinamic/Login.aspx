@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CelWeb.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CelWebDinamic.Login" %>
+
 
 <!DOCTYPE html>
 
@@ -34,7 +35,7 @@
                         <div class="card-body">
 
                             <div class="ImagenTop">
-                                <img src="asset/image/applelog.png" width="300" />
+                                <img src="asset/image/aple.png" width="300" />
                             </div>
 
                             <div class="titleLogin">

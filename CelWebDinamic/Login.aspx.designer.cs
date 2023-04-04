@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CelWeb
+namespace CelWebDinamic
 {
 
 

@@ -1,0 +1,23 @@
+﻿.Contenedor {
+    max-width: 380px;
+    max-height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px
+}
+
+.ImagenTop {
+    text-align: center;
+}
+
+.btnLogin {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titleLogin {
+    margin-top: 10px;
+    text-align: center;
+    color: black;
+}

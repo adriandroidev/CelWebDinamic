@@ -96,6 +96,9 @@
     <Content Include="asset\bootstrap-5.2.0\js\bootstrap.esm.min.js" />
     <Content Include="asset\bootstrap-5.2.0\js\bootstrap.js" />
     <Content Include="asset\bootstrap-5.2.0\js\bootstrap.min.js" />
+    <Content Include="asset\CSS\Home.css" />
+    <Content Include="asset\CSS\Login.css" />
+    <Content Include="asset\CSS\PiePagina.css" />
     <Content Include="asset\Fontawesome\css\all.css" />
     <Content Include="asset\Fontawesome\css\all.min.css" />
     <Content Include="asset\Fontawesome\css\brands.css" />
@@ -2141,6 +2144,7 @@
     <Content Include="asset\Fontawesome\svgs\solid\yen-sign.svg" />
     <Content Include="asset\Fontawesome\svgs\solid\yin-yang.svg" />
     <Content Include="asset\Fontawesome\svgs\solid\z.svg" />
+    <Content Include="asset\image\aple.png" />
     <Content Include="asset\JQuery\jquery.js" />
     <Content Include="asset\JQuery\jquery.min.js" />
     <Content Include="asset\JQuery\jquery.slim.js" />
@@ -2343,6 +2347,7 @@
       <Name>EL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
