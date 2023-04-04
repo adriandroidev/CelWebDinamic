@@ -55,6 +55,7 @@
     <Compile Include="EL_Cliente.cs" />
     <Compile Include="EL_Driver.cs" />
     <Compile Include="EL_Factura.cs" />
+    <Compile Include="Enum.cs" />
     <Compile Include="Formularios.cs" />
     <Compile Include="Permisos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

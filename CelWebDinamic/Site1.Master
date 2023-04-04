@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="CelWeb.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+
+
+        <asp:ContentPlaceHolder ID="title" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="asset/bootstrap-5.2.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="asset/Fontawesome/css/all.min.css" rel="stylesheet" />
+    <link href="asset/SweeAlert/sweetalert.min.css" rel="stylesheet" />
+    <link href="asset/CSS/Login.css" rel="stylesheet" />
+    <link href="asset/CSS/Home.css" rel="stylesheet" />
+    <link href="asset/CSS/PiePagina.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <header>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="asset/image/applelog.png" width="150" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Features</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Pricing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled">Disabled</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div>
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script src="asset/JQuery/jquery.min.js"></script>
+    <script src="asset/bootstrap-5.2.0/js/bootstrap.min.js"></script>
+    <script src="asset/SweeAlert/sweetalert.all.min.js"></script>
+    <script src="asset/SweeAlert/sweetAlertStyle.js"></script>
+
+      <footer>
+  <div class="container">
+    <h3>CelWeb</h3>
+    <div class="social-icons">
+      <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
