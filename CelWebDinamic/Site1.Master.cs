@@ -13,5 +13,17 @@ namespace CelWebDinamic
         {
 
         }
+
+        protected void lnkLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Login.aspx");
+        }
+
+        protected void lnkPrincipal_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Principal.aspx");
+        }
+
+        
     }
 }
