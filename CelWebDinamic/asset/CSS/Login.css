@@ -3,7 +3,7 @@
     max-height: 400px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px
+    margin-top: 30px;
 }
 
 .ImagenTop {
@@ -16,8 +16,7 @@
     margin-right: auto;
 }
 
-.titleLogin {
-    margin-top: 10px;
+.tituloLogin {
     text-align: center;
-    color: black;
+    color: #0120aa
 }

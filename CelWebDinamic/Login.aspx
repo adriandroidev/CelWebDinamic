@@ -7,7 +7,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>CelWeb</title>
-    <link href="asset/bootstrap-5.2.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="asset/bootstrap-5.3.0/css/bootstrap.min.css" rel="stylesheet" />
     <link href="asset/Fontawesome/css/all.min.css" rel="stylesheet" />
     <link href="asset/SweeAlert/sweetalert.min.css" rel="stylesheet" />
     <link href="asset/CSS/Login.css" rel="stylesheet" />
@@ -35,7 +35,7 @@
                         <div class="card-body">
 
                             <div class="ImagenTop">
-                                <img src="asset/image/aple.png" width="300" />
+                                <img src="asset/image/Apple.png" width="300"/>
                             </div>
 
                             <div class="titleLogin">
