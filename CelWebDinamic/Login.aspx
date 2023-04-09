@@ -56,7 +56,7 @@
                             <div class="row col-12 btnLogin">
 
        
-                                <asp:Button runat="server" ID="btnIngresar" Text ="Iniciar Sesion" CssClass ="btn btn-primary" OnClick="BtnIngresar_Click" />
+                                <asp:Button runat="server" ID="BtnIngresar" Text ="Iniciar Sesion" CssClass ="btn btn-primary" OnClick="BtnIngresar_Click" />
                             </div>
 
                             

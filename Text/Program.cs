@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using EL;
 using BL;
 using System.Globalization;
+using Utilidades;
 
 namespace Text
 {
@@ -15,15 +16,19 @@ namespace Text
     {
         static void Main(string[] args)
         {
-            Roles roles = new Roles();
+            byte[] Key = Encoding.UTF8.GetBytes("S3Gur1d4d1nf0rm4t1c42o23");//24 Caracteres
+            byte[] IV = Encoding.UTF8.GetBytes("Pr0y3ct03J3mpl00");//16 Caracteres
+
+            Usuarios user = new Usuarios();
+            user.IdUsuario = 1;
+            user.IdUsuarioActualizado = 1;
+            user.Password = Encripty.Encrypt("7526", Key, IV);
+            BL_Usuarios.PasswordUpdate(user);
 
 
 
-            roles.Rol = "Administrador Facturas";
-            roles.IdUsuarioRegistro = 1;
 
-            Console.WriteLine(BL_Roles.InsertRoles(roles).IdRol);
-            Console.ReadLine();
+
         }
 
     }

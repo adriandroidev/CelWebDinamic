@@ -6,6 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using static EL.Enum;
 using BL;
+using EL;
+using Utilidades;
+using static System.Collections.Specialized.BitVector32;
+
 
 namespace CelWebDinamic
 {
@@ -49,7 +53,7 @@ namespace CelWebDinamic
 
 
 
-        private bool ValidarControles()
+         private bool ValidarAcceso()
         {
             if (string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrWhiteSpace(txtUsuario.Text))
             {
@@ -68,21 +72,64 @@ namespace CelWebDinamic
                 return false;
             }
 
+            if(BL_Usuarios.VerificarCuentaBloqueada(txtUsuario.Text))
+            {
+                Mensaje("Su cuenta ha sido bloqueada por multiples intentos fallidos de iniciar sesion", eMessage.Error);
+                return false;
+            }
 
+            byte [] Password = BL_Usuarios.Encrypt(txtPassword.Text);
+            if (!BL_Usuarios.ValidarCredenciales(txtUsuario.Text,Password)) 
+            {
+
+                Usuarios User = BL_Usuarios.ExisteUsuario_x_UserName(txtUsuario.Text);
+                if (BL_Usuarios.CantidadIntentosFallidos(txtUsuario.Text) >= 2)
+                {
+                    
+                    BL_Usuarios.BloquearCuentaUsuario(User.IdUsuario, true, User.IdUsuario);
+                    Mensaje(Justify("La cuenta ha sido bloqueada por multiples intentos de iniciar sesion. Comuniquese con un administrador"), eMessage.Error, "", true);
+                }
+
+                if (User != null)
+                {
+                    BL_Usuarios.SumarIntentosFallido(User.IdUsuario);
+                    
+                }
+
+                Mensaje(Justify("Credenciales incorrectas. Supera 3 intentos fallidos y su cuenta estara bloqueada"), eMessage.Alerta, "", true);
+                return false;
+            }
+
+
+            Usuarios UsuarioAutenticado = BL_Usuarios.ExisteUsuario_x_UserName(txtUsuario.Text);
+            if(UsuarioAutenticado != null) 
+            { 
+            
+                if (UsuarioAutenticado.IntentosFallidos > 0)
+                {
+                    BL_Usuarios.RestablecerIntentosFallido(UsuarioAutenticado.IdUsuario,UsuarioAutenticado.IdUsuario);
+
+                }
+
+                if (!(UsuarioAutenticado.IdRol > 0))
+                {
+
+                    Mensaje("Lo sentimos, usted no tiene un Rol asignado en el sistema. Comuniquese con un administrador", eMessage.Alerta);
+                    return false;
+                }
+
+                Session["IdUsuarioGl"] = UsuarioAutenticado.IdUsuario;
+                Session["IdRolGl"] = UsuarioAutenticado.IdRol;
+                //Redireccionar a la pagina principal
+                Response.Redirect("~/Principal.aspx");
+
+            }
             return true;
         }
         protected void BtnIngresar_Click(object sender, EventArgs e)
         {
+            ValidarAcceso();
 
-            if (ValidarControles())
-            {
-
-
-
-
-
-
-            }
         }
     }
 }

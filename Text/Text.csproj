@@ -69,6 +69,10 @@
       <Project>{54a18972-457a-4125-821b-ed5a3f7e9ce8}</Project>
       <Name>EL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utilidades\Utilidades.csproj">
+      <Project>{ec5a838e-1337-4984-8d35-d661d75ebe40}</Project>
+      <Name>Utilidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

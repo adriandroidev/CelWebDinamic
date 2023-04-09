@@ -100,29 +100,29 @@ namespace DAL
             using (BDCelWeb bd = new BDCelWeb())
             {
                 var Registro = bd.Usuarios.Find(IdRegistro);
-                Registro.IntentosFallidos = Convert.ToByte(Registro.IntentosFallidos + 1);
+                Registro.IntentosFallidos = Convert.ToInt16(Registro.IntentosFallidos + 1);
                 return bd.SaveChanges() > 0;
             }
         }
-        public static bool RestablecerIntentosFallido(int IdRegistro, int IdUsuarioActualiza)
+        public static bool RestablecerIntentosFallido(int IdRegistro, int IdUsuarioActualizado)
         {
             using (BDCelWeb bd = new BDCelWeb())
             {
                 var Registro = bd.Usuarios.Find(IdRegistro);
                 Registro.IntentosFallidos = 0;
-                Registro.IdUsuarioActualizado = IdUsuarioActualiza;
+                Registro.IdUsuarioActualizado = IdUsuarioActualizado;
                 Registro.FechaActualizado = DateTime.Now;
                 return bd.SaveChanges() > 0;
             }
         }
-        public static bool BloquearCuentaUsuario(int IdRegistro, bool Bloquear, int IdUsuarioActualiza)
+        public static bool BloquearCuentaUsuario(int IdRegistro, bool Bloquear, int IdUsuarioActualizado)
         {
             using (BDCelWeb bd = new BDCelWeb())
             {
                 var Registro = bd.Usuarios.Find(IdRegistro);
                 Registro.Bloqueado = Bloquear;
                 if (!Bloquear) { Registro.IntentosFallidos = 0; }
-                Registro.IdUsuarioActualizado = IdUsuarioActualiza;
+                Registro.IdUsuarioActualizado = IdUsuarioActualizado;
                 Registro.FechaActualizado = DateTime.Now;
                 return bd.SaveChanges() > 0;
             }
@@ -152,5 +152,24 @@ namespace DAL
         {
             return Encripty.Encrypt(FlatString, Key, IV);
         }
+
+        public static bool VerificarCuentaBloqueada(string UserName)
+        {
+            using (BDCelWeb bd = new BDCelWeb())
+            {
+                return bd.Usuarios.
+                Where(a => a.UserName.ToLower() == UserName.ToLower() 
+                && a.Bloqueado).Count() > 0;
+            }
+        }
+
+        public static short CantidadIntentosFallidos(string UserName)
+        {
+            using (BDCelWeb bd = new BDCelWeb())
+            {
+                return bd.Usuarios.Where(a => a.UserName.ToLower() == UserName.ToLower()).SingleOrDefault().IntentosFallidos;
+            }
+        }
+
     }
 }
