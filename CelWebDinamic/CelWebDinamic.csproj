@@ -98,6 +98,7 @@
     <Content Include="asset\bootstrap-5.3.0\js\bootstrap.min.js" />
     <Content Include="asset\bootstrap-5.3.0\js\Popover.js" />
     <Content Include="asset\css\Login.css" />
+    <Content Include="asset\css\Principal.css" />
     <Content Include="asset\Fontawesome\css\all.css" />
     <Content Include="asset\Fontawesome\css\all.min.css" />
     <Content Include="asset\Fontawesome\css\brands.css" />
