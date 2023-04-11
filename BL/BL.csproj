@@ -45,8 +45,11 @@
     <Compile Include="BL_Cliente.cs" />
     <Compile Include="BL_Driver.cs" />
     <Compile Include="BL_Factura.cs" />
+    <Compile Include="BL_Formularios.cs" />
     <Compile Include="BL_Permisos.cs" />
     <Compile Include="BL_Roles.cs" />
+    <Compile Include="BL_RolFormularios.cs" />
+    <Compile Include="BL_RolPermisos.cs" />
     <Compile Include="BL_Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
