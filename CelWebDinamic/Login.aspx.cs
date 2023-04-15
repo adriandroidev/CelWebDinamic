@@ -15,7 +15,22 @@ namespace CelWebDinamic
 {
     public partial class Login : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                AbandonarSesion();
+            }
+        }
 
+
+        private void AbandonarSesion(bool MostrarMensaje = true)
+        {
+            Session.Abandon();
+            Session.RemoveAll();
+            HttpCookie CookieSesion = new HttpCookie("ASP.NET_SessionId", "");
+            Response.Cookies.Add(CookieSesion);
+        }
         private void Mensaje(string Message, eMessage tipoMensaje, string Encabezado = "", bool Html = false, bool Fondo = false, bool returnLogin = false, string UrlReturn = "", bool CerrarClick = true)
         {
             //icon -->      success,warning, error,  info
@@ -46,10 +61,7 @@ namespace CelWebDinamic
             return Html;
         }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
 
 

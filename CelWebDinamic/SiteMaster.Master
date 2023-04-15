@@ -10,7 +10,7 @@
     <link href="asset/bootstrap-5.3.0/css/bootstrap.min.css" rel="stylesheet" />
     <link href="asset/Fontawesome/css/all.min.css" rel="stylesheet" />
     <link href="asset/SweeAlert/sweetalert.min.css" rel="stylesheet" />
-
+    <link href="asset/css/Paginacion.css" rel="stylesheet" />
 
     <script src="asset/JQuery/jquery.min.js"></script>
     <script src="asset/bootstrap-5.3.0/js/bootstrap.bundle.min.js"></script>
@@ -82,7 +82,7 @@
                             <ul class="dropdown-menu">
                                 <li>
 
-                                    <asp:LinkButton Text="Celulares" runat="server" CssClass="dropdown-item" ID="lnkFormulario_1" OnClick="lnkFormulario_1_Click"/>
+                                    <asp:LinkButton Text="Administrar Usuarios" runat="server" CssClass="dropdown-item" ID="lnkAdministracionUsuarios" OnClick="lnkAdministracionUsuarios_Click"/>
                                     
                                 </li>
 
@@ -112,6 +112,10 @@
 
                             </ul>
                         </li>
+
+                        <li class="nav-item">
+                            <asp:LinkButton Text="Salir" CssClass="nav-link" aria-current="Inicio" runat="server" ID="lnkSalir" OnClick="lnkSalir_Click"/>
+                        </li>
                       
                     </ul>
                 </div>
@@ -120,6 +124,9 @@
 
 
         <div>
+            <asp:ScriptManager runat="server"/>
+            
+
             <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
         </div>

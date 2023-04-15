@@ -15,22 +15,22 @@ namespace CelWebDinamic
     {
 
         /// <summary>
-        /// Control panelFormulario_1.
+        /// Control panelAdministracionUsuarios.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelFormulario_1;
+        protected global::System.Web.UI.WebControls.Panel panelAdministracionUsuarios;
 
         /// <summary>
-        /// Control lnkFormulario_1.
+        /// Control lnkAdministracionUsuarios.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkFormulario_1;
+        protected global::System.Web.UI.WebControls.LinkButton lnkAdministracionUsuarios;
 
         /// <summary>
         /// Control panelFormulario_2.

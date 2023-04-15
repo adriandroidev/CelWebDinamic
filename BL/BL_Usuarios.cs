@@ -18,10 +18,10 @@ namespace BL
             return DAL_Usuarios.Insert(Entidad);
         }
 
-        public static bool Update(Usuarios Entidad)
+        public static bool Update(Usuarios Entidad, bool UpdatePassword)
 
         {
-            return DAL_Usuarios.Update(Entidad);
+            return DAL_Usuarios.Update(Entidad,UpdatePassword);
         }
 
         public static bool PasswordUpdate(Usuarios Entidad)
@@ -38,6 +38,16 @@ namespace BL
         public static List<Usuarios> List(bool Activo = true)
         {
             return DAL_Usuarios.List(Activo);
+        }
+
+        public static List<vUsuarios> vUsuarios(bool Activo = true)
+        {
+            return DAL_Usuarios.vUsuarios(Activo);
+        }
+
+        public static vUsuarios vUsuario(int IdRegistro)
+        {
+            return DAL_Usuarios.vUsuario(IdRegistro);
         }
 
         public static Usuarios Registro(int IdRegistro)
@@ -63,6 +73,10 @@ namespace BL
             return DAL_Usuarios.ExisteUserName(UserName);
         }
 
+        public static bool ExisteUserNameUpdate(string UserName, int IdRegistro)
+        {
+            return DAL_Usuarios.ExisteUserNameUpdate(UserName, IdRegistro);
+        }
         public static bool VerificarCuentaBloqueada(string UserName)
         {
             return DAL_Usuarios.VerificarCuentaBloqueada(UserName);

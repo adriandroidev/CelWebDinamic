@@ -10,7 +10,7 @@ namespace BL
 {
     public class BL_Formularios
     {
-        public static Formularios Insert(Formularios Entidad)
+        public static  Formularios Insert(Formularios Entidad)
         {
             return DAL_Formularios.Insert(Entidad);
         }

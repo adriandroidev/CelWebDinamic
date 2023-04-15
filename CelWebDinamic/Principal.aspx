@@ -3,10 +3,13 @@
 
     <link href="asset/css/Principal.css" rel="stylesheet" />
 
+   <asp:UpdatePanel runat="server">
+    <ContentTemplate>
+
     <div class="row">
 
-        <asp:Panel runat="server" ID="panelFormulario_1" CssClass="col-md-3 CardMenuPrincipal" Visible="true">
-            <asp:LinkButton runat="server" ID="lnkFormulario_1" OnClick="lnkFormulario_1_Click">
+        <asp:Panel runat="server" ID="panelAdministracionUsuarios" CssClass="col-md-3 CardMenuPrincipal" Visible="true">
+            <asp:LinkButton runat="server" ID="lnkAdministracionUsuarios" OnClick="lnkAdministracionUsuarios_Click">
             <div class="card flex-column" style="background-color:rgb(1 145 188);">
                 <div class="card-body">
                     <div class="d-inline-flex">
@@ -17,7 +20,7 @@
                             
                         </div>
                         <div class="col-sm-8 tituloCard">
-                            <h4>Celulares <br /> CelWeb</h4>
+                            <h4>Administracion Usuarios <br /> CelWeb</h4>
                         </div>
                     </div>
                 </div>
@@ -80,6 +83,7 @@
         </asp:Panel>
 
     </div>
-
+         </ContentTemplate>
+      </asp:UpdatePanel>
 
 </asp:Content>

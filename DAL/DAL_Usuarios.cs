@@ -23,7 +23,7 @@ namespace DAL
                 return Entidad;
             }
         }
-        public static bool Update(Usuarios Entidad)
+        public static bool Update(Usuarios Entidad, bool UpdatePassword)
         {
             using (BDCelWeb bd = new BDCelWeb())
             {
@@ -31,7 +31,7 @@ namespace DAL
                 RegistroBD.NombreCompleto = Entidad.NombreCompleto;
                 RegistroBD.Correo = Entidad.Correo;
                 RegistroBD.UserName = Entidad.UserName;
-                if (Entidad.Password != null)
+                if (UpdatePassword)
                 {
                     RegistroBD.Password = Entidad.Password;
                 }
@@ -68,6 +68,52 @@ namespace DAL
             using (BDCelWeb bd = new BDCelWeb())
             {
                 return bd.Usuarios.Where(a => a.Activo == Activo).ToList();
+            }
+        }
+
+        public static List<vUsuarios> vUsuarios(bool Activo = true)
+        {
+            using (BDCelWeb bd = new BDCelWeb())
+            {
+                var Consulta = (from tblUsuarios in bd.Usuarios
+                                join tblRoles in bd.Roles on tblUsuarios.IdRol equals tblRoles.IdRol
+                                where tblUsuarios.Activo == Activo && tblRoles.Activo == Activo
+                                select new vUsuarios
+                                {
+                                    IdUsuario = tblUsuarios.IdUsuario,
+                                    NombreCompleto = tblUsuarios.NombreCompleto,
+                                    Correo = tblUsuarios.Correo,
+                                    UserName = tblUsuarios.UserName,
+                                    Bloqueado = tblUsuarios.Bloqueado,
+                                    CuentaBloqueada = (tblUsuarios.Bloqueado) ? "SI" : "NO",
+                                    IntentosFallidos = tblUsuarios.IntentosFallidos,
+                                    IdRol = tblUsuarios.IdRol,
+                                    Rol = tblRoles.Rol
+                                }).ToList();
+                return Consulta;
+            }
+        }
+
+        public static vUsuarios vUsuario(int IdRegistro)
+        {
+            using (BDCelWeb bd = new BDCelWeb())
+            {
+                var Consulta = (from tblUsuarios in bd.Usuarios
+                                join tblRoles in bd.Roles on tblUsuarios.IdRol equals tblRoles.IdRol
+                                where tblUsuarios.Activo == true && tblRoles.Activo == true && tblUsuarios.IdUsuario == IdRegistro
+                                select new vUsuarios
+                                {
+                                    IdUsuario = tblUsuarios.IdUsuario,
+                                    NombreCompleto = tblUsuarios.NombreCompleto,
+                                    Correo = tblUsuarios.Correo,
+                                    UserName = tblUsuarios.UserName,
+                                    Bloqueado = tblUsuarios.Bloqueado,
+                                    CuentaBloqueada = (tblUsuarios.Bloqueado) ? "SI" : "NO",
+                                    IntentosFallidos = tblUsuarios.IntentosFallidos,
+                                    IdRol = tblUsuarios.IdRol,
+                                    Rol = tblRoles.Rol
+                                }).SingleOrDefault();
+                return Consulta;
             }
         }
         public static Usuarios Registro(int IdRegistro)
@@ -132,6 +178,14 @@ namespace DAL
             using (BDCelWeb bd = new BDCelWeb())
             {
                 return bd.Usuarios.Where(a => a.UserName.ToLower() == UserName.ToLower()).Count() > 0;
+            }
+        }
+
+        public static bool ExisteUserNameUpdate(string UserName, int IdRegistro)
+        {
+            using (BDCelWeb bd = new BDCelWeb())
+            {
+                return bd.Usuarios.Where(a => a.UserName.ToLower() == UserName.ToLower() && a.IdUsuario != IdRegistro).Count() > 0;
             }
         }
         public static Usuarios ExisteUsuario_x_UserName(string UserName)
